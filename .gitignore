@@ -329,7 +329,3 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 
-
-# Ignorowanie konfiguracji wewnetrznej
-*.GameRacing.vcxproj
-*.GameRacing.vcxproj.filters
