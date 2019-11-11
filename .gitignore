@@ -8,7 +8,6 @@
 *.user
 *.userosscache
 *.sln.docstates
-*.GameRacing.vcxproj
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -329,3 +328,8 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+
+# Ignorowanie konfiguracji wewnetrznej
+*.GameRacing.vcxproj
+*.GameRacing.vcxproj.filters
