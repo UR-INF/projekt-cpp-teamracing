@@ -8,6 +8,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.GameRacing.vcxproj
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
