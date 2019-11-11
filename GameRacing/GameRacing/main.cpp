@@ -16,12 +16,12 @@ const Uint8* keystate;
 
 int main(int argc, char* args[])
 {
-	okno = SDL_CreateWindow("Gra", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, 0);
+	okno = SDL_CreateWindow("Gra", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 720, 0);
 	ekran = SDL_GetWindowSurface(okno);
 
 	klasa_fps fps;
-	SDL_Surface * droga = IMG_Load("doga.png");
-	SDL_Surface * postac = IMG_Load("postac.png");
+	SDL_Surface * droga = IMG_Load("droga.bmp");
+	SDL_Surface * postac = IMG_Load("postac.bmp");
 
 	int klatka = 0;
 
