@@ -134,7 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="droga.bmp">
-      <FileType>CppWebService</FileType>
+      <FileType>Image</FileType>
     </Image>
     <Image Include="postac.bmp" />
   </ItemGroup>
