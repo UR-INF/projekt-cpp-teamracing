@@ -133,17 +133,10 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="resource.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="GameRacing.rc" />
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="droga.bmp">
       <FileType>CppWebService</FileType>
     </Image>
     <Image Include="postac.bmp" />
-    <Image Include="postac.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
