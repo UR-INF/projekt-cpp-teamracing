@@ -16,7 +16,7 @@ const Uint8* keystate;
 
 int main(int argc, char* args[])
 {
-	okno = SDL_CreateWindow("Gra", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, 0);
+	okno = SDL_CreateWindow("Gra", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 720, 0);
 	ekran = SDL_GetWindowSurface(okno);
 
 	klasa_fps fps;
