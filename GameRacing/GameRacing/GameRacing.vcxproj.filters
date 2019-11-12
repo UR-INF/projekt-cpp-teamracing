@@ -22,4 +22,12 @@
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="droga.bmp">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="postac.bmp">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
