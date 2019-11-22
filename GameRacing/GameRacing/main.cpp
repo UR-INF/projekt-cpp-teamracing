@@ -13,7 +13,7 @@ SDL_Event zdarzenie;
 SDL_Rect rect1, rect2;
 const Uint8* keystate;
 
-//test
+//testty
 
 int main(int argc, char* args[])
 {
