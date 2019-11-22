@@ -135,6 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="droga.bmp" />
+    <Image Include="droga2.bmp" />
     <Image Include="postac.bmp" />
     <Image Include="przeciwnik.bmp" />
   </ItemGroup>

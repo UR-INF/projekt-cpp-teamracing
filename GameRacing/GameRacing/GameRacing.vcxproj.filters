@@ -35,5 +35,8 @@
     <Image Include="postac.bmp">
       <Filter>Pliki zasobów</Filter>
     </Image>
+    <Image Include="droga2.bmp">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
   </ItemGroup>
 </Project>

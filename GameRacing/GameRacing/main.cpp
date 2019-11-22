@@ -52,7 +52,7 @@ int main(int argc, char* args[])
 	render = SDL_CreateRenderer(okno, -1, SDL_RENDERER_ACCELERATED);
 
 	klasa_fps fps;
-	SDL_Texture* droga = loadTexture("droga.bmp");
+	SDL_Texture* droga = loadTexture("droga2.bmp");
 	SDL_Texture* postac = loadTexture("postac.bmp");
 	SDL_Texture* przeciwnik = loadTexture("przeciwnik.bmp");
 
@@ -133,11 +133,11 @@ int main(int argc, char* args[])
 		{//droga
 			
 
-				for (int loop = 0; loop < 8; loop++) 
+				for (int loop = 0; loop < 2; loop++) 
 				{
-					rect2.x = loop * 200 - (klatka * 7) % 200;
+					rect2.x = loop * 1400 - (klatka * 4) % 400;
 					rect2.y = 0;
-					rect2.w = 200;
+					rect2.w = 1280;
 					rect2.h = 720;
 					SDL_RenderCopy(render, droga, NULL, &rect2);
 				}

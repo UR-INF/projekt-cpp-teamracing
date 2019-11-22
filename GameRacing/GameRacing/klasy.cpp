@@ -21,9 +21,10 @@ public:
 
 	void update(SDL_Texture* tekstura, SDL_Renderer* render)
 	{
-
+		
 		posX = posX - 10;
-
+		
+		
 		SDL_Rect rect;
 		rect.x = posX;
 		rect.y = posY - 20;
