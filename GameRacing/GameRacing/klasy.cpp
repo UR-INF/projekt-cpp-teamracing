@@ -16,7 +16,7 @@ public:
 	void init()
 	{
 		posX = 1280;
-		posY = 100 + ((rand () % 520)/85)*86+40;
+		posY = 100 + ((rand () % 500)/85)*86+40;
 	}
 
 	void update(SDL_Texture* tekstura, SDL_Renderer* render)

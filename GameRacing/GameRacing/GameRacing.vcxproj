@@ -134,9 +134,9 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="droga.bmp" />
     <Image Include="postac.bmp" />
     <Image Include="przeciwnik.bmp" />
-    <Image Include="droga.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

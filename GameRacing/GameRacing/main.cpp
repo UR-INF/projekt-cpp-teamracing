@@ -58,7 +58,6 @@ int main(int argc, char* args[])
 
 
 	int klatka = 0;
-
 	float posY = 360;
 	float velY = 0;
 
@@ -127,16 +126,22 @@ int main(int argc, char* args[])
 		{//tlo
 			SDL_RenderClear(render);
 		}
+		
+
+
 
 		{//droga
-			for (int loop = 0; loop < 8; loop++) {
+			
 
-				rect2.x = loop * 200 - (klatka * 6) % 200;
-				rect2.y = 0;
-				rect2.w = 200;
-				rect2.h = 720;
-				SDL_RenderCopy(render, droga, NULL, &rect2);
-			}
+				for (int loop = 0; loop < 8; loop++) 
+				{
+					rect2.x = loop * 200 - (klatka * 7) % 200;
+					rect2.y = 0;
+					rect2.w = 200;
+					rect2.h = 720;
+					SDL_RenderCopy(render, droga, NULL, &rect2);
+				}
+			
 		}
 		{//postac
 			rect2.x = 100;
