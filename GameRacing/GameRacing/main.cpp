@@ -37,6 +37,7 @@ SDL_Texture* loadTexture(std::string path) {
 }
 
 
+
 int main(int argc, char* args[])
 {
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
