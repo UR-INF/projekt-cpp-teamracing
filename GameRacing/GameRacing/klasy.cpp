@@ -1,4 +1,6 @@
 #include <iostream>
+#include <time.h>
+#include <cstdlib>
 #include <SDL.h>
 
 
@@ -11,26 +13,47 @@ public:
 	float posY;
 	float predkosc;
 	
+	Uint8 r, g, b;
 
+	bool aktywny = true;
 
 	void init()
 	{
 		posX = 1280;
 		posY = 100 + ((rand () % 500)/85)*86+40;
+		r = rand() % 255;
+		g = rand() % 255;
+		b = rand() % 255;
 	}
 
-	void update(SDL_Texture* tekstura, SDL_Renderer* render)
+	void update(SDL_Texture* tekstura, SDL_Renderer* render,float postac_y)
 	{
 		
-		posX = posX - 10;
+		if (aktywny == true)
+		{
+			posX = posX - 10;
+
+			if (posX < 0)
+			{
+				aktywny = false;
+			}
+
+
+			SDL_Rect rect;
+			rect.x = posX;
+			rect.y = posY - 20;
+			rect.w = 80;
+			rect.h = 40;
+			SDL_SetTextureColorMod(tekstura, r, g, b);
+			SDL_RenderCopy(render, tekstura, NULL, &rect);
+
+			//funkcja kolizji
+			if (posX>100 && posX<180 && posY + 40>postac_y&& posY < postac_y + 40)
+			{
+				exit(0);
+			}
+		}
 		
-		
-		SDL_Rect rect;
-		rect.x = posX;
-		rect.y = posY - 20;
-		rect.w = 80;
-		rect.h = 40;
-		SDL_RenderCopy(render,tekstura, NULL, &rect);
 	}
 
 };
