@@ -1,12 +1,13 @@
 ﻿#include <iostream>
 #include <vector>
-#include <time.h>
+
 #include <cstdlib>
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_render.h>
 #include <SDL_rect.h>
-
+#include <SDL_ttf.h>
+#include <sstream>
 
 
 
@@ -53,6 +54,16 @@ int main(int argc, char* args[])
 	render = SDL_CreateRenderer(okno, -1, SDL_RENDERER_ACCELERATED);
 
 	klasa_fps fps;
+
+
+	TTF_Init();
+	TTF_Font* arial = TTF_OpenFont("C:/Windows/Fonts/arial.ttf", 40);
+
+	SDL_Surface* surface_tekst;
+	SDL_Texture* texture_tekst;
+
+
+
 	SDL_Texture* droga = loadTexture("droga.bmp");
 	SDL_Texture* postac = loadTexture("postac.bmp");
 	SDL_Texture* przeciwnik = loadTexture("przeciwnik.bmp");
@@ -61,12 +72,19 @@ int main(int argc, char* args[])
 	int klatka = 0;
 	float posY = 360;
 	float velY = 0;
+	int punkty = 0;
+	int ilosc = 25;
+	int points = 0;
+
+	
 
 
+	
 	vector <klasa_przeciwnik> v_przeciwnik;
 
 	while (true)
 	{
+		
 		fps.start();
 		klatka++;
 		keystate = SDL_GetKeyboardState(NULL);
@@ -79,13 +97,40 @@ int main(int argc, char* args[])
 			}
 		}
 
-		{//spawnowanie przeciwnikow
+		{//zdarzenie
 			if (klatka % 20 == 0)
+			{
+				punkty = punkty + 2;
+				
+			}
+			if (velY < 1 && velY>-1)
+			{
+				if (klatka % 3 == 0)
+				{
+					punkty = punkty + 2;
+					
+					
+				}
+			}
+			//poziomy trudnosci
+			
+			while (punkty == points && ilosc >=7)
+			{
+				ilosc = ilosc - 1;
+				points = points + 100;
+			}
+			
+		}
+
+
+		{//spawnowanie przeciwnikow
+
+			if (klatka % ilosc == 0)
 			{
 				klasa_przeciwnik obj;
 				obj.init();
 				v_przeciwnik.push_back(obj);
-
+				
 			}
 			for (int loop = 0; loop < v_przeciwnik.size(); loop++)
 			{
@@ -101,12 +146,12 @@ int main(int argc, char* args[])
 
 			if (keystate[SDL_SCANCODE_DOWN]) {
 				if(velY < 25){
-					velY = velY + 0.6;
+					velY = velY + 1;
 				}
 			}
 			if (keystate[SDL_SCANCODE_UP]) {
 				if(velY > -25){
-					velY = velY - 0.6;
+					velY = velY - 1;
 				}
 			}
 			velY = velY * 0.9;
@@ -142,7 +187,7 @@ int main(int argc, char* args[])
 
 				for (int loop = 0; loop < 8; loop++) 
 				{
-					rect2.x = loop * 200 - (klatka * 8) %200;
+					rect2.x = loop * 200 - (klatka * 11) %200;
 					rect2.y = 0;
 					rect2.w = 200;
 					rect2.h = 720;
@@ -156,7 +201,7 @@ int main(int argc, char* args[])
 			rect2.w = 80;
 			rect2.h = 40;
 
-			SDL_RenderCopyEx(render,postac,NULL,&rect2,velY*8,NULL,SDL_FLIP_NONE);
+			SDL_RenderCopyEx(render,postac,NULL,&rect2,velY*4,NULL,SDL_FLIP_NONE);
 		}
 
 		{//przeciwnik
@@ -164,6 +209,22 @@ int main(int argc, char* args[])
 			{
 				v_przeciwnik.at(loop).update(przeciwnik,render,posY);
 
+			}
+		}
+
+		{//tekst
+			{
+				SDL_Color kolor = { 255,255,255 };
+				stringstream ss;
+				ss << punkty;
+				
+				surface_tekst = TTF_RenderText_Blended(arial,ss.str().c_str(), kolor);
+				texture_tekst = SDL_CreateTextureFromSurface(render, surface_tekst);
+				rect2.x = 0; rect2.y = 0; rect2.w = 300; rect2.h = 100;
+				SDL_RenderCopy(render, texture_tekst, NULL, &rect2);
+
+				SDL_DestroyTexture(texture_tekst);
+				SDL_FreeSurface(surface_tekst);
 			}
 		}
 	}

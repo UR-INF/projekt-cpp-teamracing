@@ -31,7 +31,7 @@ public:
 		
 		if (aktywny == true)
 		{
-			posX = posX - 10;
+			posX = posX - 15;
 
 			if (posX < 0)
 			{
@@ -48,7 +48,7 @@ public:
 			SDL_RenderCopy(render, tekstura, NULL, &rect);
 
 			//funkcja kolizji
-			if (posX>100 && posX<180 && posY + 40>postac_y&& posY < postac_y + 40)
+			if (posX>120 && posX<160 && posY + 40>postac_y&& posY < postac_y + 40)
 			{
 				exit(0);
 			}
