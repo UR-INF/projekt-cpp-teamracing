@@ -67,7 +67,7 @@ int main(int argc, char* args[])
 	SDL_Texture* droga = loadTexture("droga.bmp");
 	SDL_Texture* postac = loadTexture("postac.bmp");
 	SDL_Texture* przeciwnik = loadTexture("przeciwnik.bmp");
-
+	SDL_Texture* koniec_gry = loadTexture("koniec_gry.bmp");
 
 	int klatka = 0;
 	float posY = 360;
@@ -114,7 +114,7 @@ int main(int argc, char* args[])
 			}
 			//poziomy trudnosci
 			
-			while (punkty == points && ilosc >=7)
+			while (punkty == points && ilosc >=5)
 			{
 				ilosc = ilosc - 1;
 				points = points + 100;
@@ -163,12 +163,12 @@ int main(int argc, char* args[])
 		posY = posY + velY;
 
 		if (posY < 120) {
-			velY = velY + 1;
+			velY = velY + 1.1;
 			velY = velY * 0.9;
 
 		}
 		if (posY > 560) {
-			velY = velY - 1;
+			velY = velY - 1.1;
 			velY = velY * 0.9;
 
 		}
@@ -214,13 +214,12 @@ int main(int argc, char* args[])
 
 		{//tekst
 			{
-				SDL_Color kolor = { 255,255,255 };
-				stringstream ss;
-				ss << punkty;
-				
-				surface_tekst = TTF_RenderText_Blended(arial,ss.str().c_str(), kolor);
+				SDL_Color kolor = { 255,255,0 };
+				stringstream zliczanie;
+				zliczanie << punkty;
+				surface_tekst = TTF_RenderText_Blended(arial,zliczanie.str().c_str(), kolor);
 				texture_tekst = SDL_CreateTextureFromSurface(render, surface_tekst);
-				rect2.x = 0; rect2.y = 0; rect2.w = 300; rect2.h = 100;
+				rect2.x = 600; rect2.y = 0; rect2.w = 200; rect2.h = 100;
 				SDL_RenderCopy(render, texture_tekst, NULL, &rect2);
 
 				SDL_DestroyTexture(texture_tekst);
@@ -232,4 +231,5 @@ int main(int argc, char* args[])
 	SDL_RenderPresent(render);
 	fps.end();
 }
+
 }

@@ -11,10 +11,9 @@ public:
 	
 	float posX;
 	float posY;
-	float predkosc;
+	
 	
 	Uint8 r, g, b;
-
 	bool aktywny = true;
 
 	void init()
@@ -48,6 +47,7 @@ public:
 			SDL_RenderCopy(render, tekstura, NULL, &rect);
 
 			//funkcja kolizji
+			
 			if (posX>120 && posX<160 && posY + 40>postac_y&& posY < postac_y + 40)
 			{
 				exit(0);

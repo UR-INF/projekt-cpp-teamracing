@@ -38,5 +38,8 @@
     <Image Include="droga2.bmp">
       <Filter>Pliki zasobów</Filter>
     </Image>
+    <Image Include="koniec_gry.bmp">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
   </ItemGroup>
 </Project>
