@@ -5,6 +5,7 @@
 
 
 
+
 class klasa_przeciwnik
 {
 public:
@@ -50,7 +51,9 @@ public:
 			
 			if (posX>120 && posX<160 && posY + 40>postac_y&& posY < postac_y + 40)
 			{
+				
 				exit(0);
+			
 			}
 		}
 		
